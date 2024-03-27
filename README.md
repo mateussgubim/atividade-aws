@@ -22,3 +22,17 @@
 + Aplicação Wordpress precisa estar rodando na porta 80 ou 8080
 + Utilizar repositório git para versionamento
 + Criar documentação
+
+## Parte Prática
+
+### 1 - Criando a VPC
+O primeiro passo será criar uma VPC para este projeto. Essa VPC terá dois pares de subnets. Cada par será constituído por uma subnet privada e outra pública, e cada par estará em uma AZ diferente.
+
+Um NAT Gateway será adicionado com o propósito de prover conexão com a internet.
+
+<img src="images/creating-vpc.png">
+
+### 2 - Criando os Security Groups
+Regras para as instâncias EC2
+
+<img src="images/ec2-SG.png">
