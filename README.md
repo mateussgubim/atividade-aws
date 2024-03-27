@@ -71,3 +71,14 @@ Criando as regras para os SGs. Basta navegar para EC2 e selecionar `Security Gro
 |Type          |Protocol |Port Range|Source    |
 |--------------|---------|----------|----------|
 |MYSQL/Aurora  |TCP      |3306      |0.0.0.0/0 |
+
+### 3 - Criação do EFS
+Utilizei o EFS para compartilhar diretórios do container do Wordpress.
+
+Para criar um EFS, cliquei em `Create files system` preenchi os campos de `nome`, `VPC` e, em seguida cliquei em `customize`.
+
+<img src="images/efs01.png">
+
+A primeira parte foi deixada como padrão, a segunda apenas alterei os `Security groups` para o `SG-EFS`, nas outras partes eu também deixei como padrão.
+
+<img src="images/efs02.png">
