@@ -28,17 +28,32 @@
 ### 1 - Criando a VPC
 O primeiro passo será criar uma VPC para este projeto. Essa VPC terá dois pares de subnets. Cada par será constituído por uma subnet privada e outra pública, e cada par estará em uma AZ diferente.
 
-Um NAT Gateway será adicionado com o propósito de prover conexão com a internet.
+A princípio, a configuração inicial da VPC será essa:
 
-<img src="images/creating-vpc.png">
+<img src="images/vpc01.png">
+
+Um NAT Gateway será adicionado com o propósito de prover conexão com a internet. Para criar, basta nevagar até `NAT Gateways`
+
+Para prover conexão para uma sub-rede privada, o NAT Gateway precisará ser anexado a uma sub-rede pública:
+
+<img src="images/nat-gateway.png">
+
+Após a criação do NAT Gateway, foi necessário alterar as rotas. Naveguei até `Route Tables`, selecionei cada uma das sub-nets privadas, adicionei uma rota para `0.0.0.0/0` com um target no `Nat Gateway`, e selecionei o NAT Gateway criado.
+
+<img src="images/route-tables.png">
+
+
+A configuração final da VPC ficou assim:
+
+<img src="images/vpc02.png">
 
 ### 2 - Criando os Security Groups
 Regras para as instâncias EC2
 
 | Type | Protocol | Port Range |  Source   |
 |------|----------|------------|-----------|
-|SSH   |TCP       |22          |10.0.0.0/16|
 |HTTP  |TCP       |80          |Anywhere   |
+|SSH   |TCP       |22          |10.0.0.0/16|
 
 <img src="images/ec2-SG.png">
 
