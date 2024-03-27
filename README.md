@@ -48,19 +48,26 @@ A configuração final da VPC ficou assim:
 <img src="images/vpc02.png">
 
 ### 2 - Criando os Security Groups
-Regras para as instâncias EC2
+Criando as regras para os SGs. Basta navegar para EC2 e selecionar `Security Groups`
 
-| Type | Protocol | Port Range |  Source   |
-|------|----------|------------|-----------|
-|HTTP  |TCP       |80          |Anywhere   |
-|SSH   |TCP       |22          |10.0.0.0/16|
+#### SG-LB
+|Type |Protocol |Port Range|Source    |
+|-----|---------|----------|----------|
+|HTTP |TCP      |80        |0.0.0.0/0 |
 
-<img src="images/ec2-SG.png">
 
-Regras para o Load Balance
+#### SG-EC2
+|Type |Protocol |Port Range|Source    |
+|-----|---------|----------|----------|
+|HTTP |TCP      |80        |SG-LB     |
+|SSH  |TCP      |22        |0.0.0.0/0 |
 
-| Type | Protocol | Port Range |  Source   |
-|------|----------|------------|-----------|
-|HTTP  |TCP       |80          |Anywhere   |
+#### SG-EFS
+|Type |Protocol |Port Range|Source    |
+|-----|---------|----------|----------|
+|FNS  |TCP      |2049      |0.0.0.0/0 |
 
-<img src="images/lb-SG.png">
+#### SG-RDS
+|Type          |Protocol |Port Range|Source    |
+|--------------|---------|----------|----------|
+|MYSQL/Aurora  |TCP      |3306      |0.0.0.0/0 |
