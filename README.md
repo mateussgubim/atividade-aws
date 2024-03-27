@@ -38,7 +38,7 @@ Regras para as instâncias EC2
 | Type | Protocol | Port Range |  Source   |
 |------|----------|------------|-----------|
 |SSH   |TCP       |22          |10.0.0.0/16|
-|HTTP  |TCP       |80          |0.0.0.0/16 |
+|HTTP  |TCP       |80          |Anywhere   |
 
 <img src="images/ec2-SG.png">
 
@@ -46,6 +46,6 @@ Regras para o Load Balance
 
 | Type | Protocol | Port Range |  Source   |
 |------|----------|------------|-----------|
-|HTTP  |TCP       |80          |0.0.0.0/16 |
+|HTTP  |TCP       |80          |Anywhere   |
 
 <img src="images/lb-SG.png">
