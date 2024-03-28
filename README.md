@@ -65,7 +65,7 @@ Criando as regras para os SGs. Basta navegar para EC2 e selecionar `Security Gro
 #### SG-EFS
 |Type |Protocol |Port Range|Source    |
 |-----|---------|----------|----------|
-|FNS  |TCP      |2049      |0.0.0.0/0 |
+|NFS  |TCP      |2049      |0.0.0.0/0 |
 
 #### SG-RDS
 |Type          |Protocol |Port Range|Source    |
