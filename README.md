@@ -82,3 +82,21 @@ Para criar um EFS, cliquei em `Create files system` preenchi os campos de `nome`
 A primeira parte foi deixada como padrão, a segunda apenas alterei os `Security groups` para o `SG-EFS`, nas outras partes eu também deixei como padrão.
 
 <img src="images/efs02.png">
+
+### 4 - Criando o RDS
+Busquei por RDS e cliquei em `Create database`. Em `engine`, selecionei `MySQL` e em `templates` selecionei `free tier`.
+
+<img src="images/rds01.png"> 
+<img src="images/rds02.png">
+
+Em `Settings` apenas alterei o `DB instance identifier` e adicionei uma senha para o usuário master.
+
+<img src="images/rds03.png">
+
+Em `Connectivity` apenas alterei os security groups e a AZ.
+
+<img src="images/rds04.png">
+
+Em `Database options` adicionei o nome inicial do banco de dados.
+
+<img src="images/rds05.png">
