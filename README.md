@@ -119,3 +119,18 @@ aws ec2 create-key-pair \
 ```
 
 <img src="images/template01.png"> <img src="images/template02.png">
+
+### 6 - Criando o Load Balancer
+Em <strong>EC2</strong> selecione `Load Balancers` e no final da página, selecione `Classic Load Balancer` e clique em <strong>create</strong>.
+
+Após isso, defini as seguintes configurações:
+
++ Scheme: Internet-facing.
++ VPC: atividade-aws-docker-VPC.
++ Mapping: Selecionei as duas AZ's e suas sub-nets públicas.
++ Security Group: SG-aws-docker-LB.
++ Listener and routing: Adicionei o protocolo TCP e a porta 22. A configuração do HTTP na porta 80 já vem pronta.
++ Health Check: Mantive a configuração padrão na porta 80.
+
+<img src="images/clb01.png"> <img src="images/clb02.png">
+<img src="images/clb03.png"> <img src="images/clb04.png"> 
