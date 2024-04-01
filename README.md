@@ -100,3 +100,22 @@ Em `Connectivity` apenas alterei os security groups e a AZ.
 Em `Database options` adicionei o nome inicial do banco de dados.
 
 <img src="images/rds05.png">
+
+### 5 - Criando um template para as instâncias
+Optei por utilizar um template para facilitar a criação e configuração das instâncias. O template terá as seguintes configurações:
+
++ Máquina: Amazon Linux
++ Tipo da instância: t3.small
++ Utilizará o arquivo de configuração `user_data.sh`
+
+Será necessário a utilização de uma chave para realizar a conexão SSH, para a criação, foram utilizados os seguintes comandos:
+
+```
+aws ec2 create-key-pair \
+    --key-name atividade-docker \
+    --query 'KeyMaterial' \
+    --output text > atividade-docker.pem \
+	--profile m
+```
+
+<img src="images/template01.png"> <img src="images/template02.png">
