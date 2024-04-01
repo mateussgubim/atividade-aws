@@ -106,7 +106,7 @@ Optei por utilizar um template para facilitar a criação e configuração das i
 
 + Máquina: Amazon Linux
 + Tipo da instância: t3.small
-+ Utilizará o arquivo de configuração `user_data.sh`
++ Utilizará o arquivo de configuração [`user_data.sh`](https://github.com/mateussgubim/atividade-aws/blob/main/user_data.sh)
 
 Será necessário a utilização de uma chave para realizar a conexão SSH, para a criação, foram utilizados os seguintes comandos:
 
