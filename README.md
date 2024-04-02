@@ -134,3 +134,19 @@ Após isso, defini as seguintes configurações:
 
 <img src="images/clb01.png"> <img src="images/clb02.png">
 <img src="images/clb03.png"> <img src="images/clb04.png"> 
+
+### 7 - Criando o EndPoint 
+Um endpoint é necessário para termos conexão com as nossas instâncias, dado o fato de que elas não tem um IP público.
+
+Para a configuração de um endpoint, é necessário navegar até `VPC` e depois `Endpoints`. Após isso, cliquei em `Create endpoint`.
+
+Defini as seguintes configurações:
+
++ Name tag: ativdade-aws-docker-EP
++ Service category: EC2 Instance Connect Endpoint
++ VPC: atividade-aws-docker-VPC
++ Security group: SG-aws-docker-LB
++ Subnet: subnet-private-1
+
+<img src="images/endpoint01.png"> 
+<img src="images/endpoint02.png">
