@@ -150,3 +150,22 @@ Defini as seguintes configurações:
 
 <img src="images/endpoint01.png"> 
 <img src="images/endpoint02.png">
+
+### 8 - Criando o Auto Scaling
+Para a criação do Auto Scaling, utilizei as seguintes configurações:
+
++ Auto Scaling group name: atividade-aws-docker-ASG
++ Launch Template: atividade-aws-docker-template
++ Version: Latest
++ VPC: atividade-aws-docker-VPC
++ AZ and subnet: Selecionei as duas subnets privadas
++ Load balancing: Attach to an existing load balancer
++ Classic Load Balancers: atividade-aws-docker-CLB
++ Disire capacity: 2
++ Scaling limits: min: 2, max: 4
++ Target value: 90
++ Instance maintenance policy: No policy
+
+<img src="images/asg01.png"> <img src="images/asg02.png">
+<img src="images/asg03.png"> <img src="images/asg04.png">
+<img src="images/asg05.png"> <img src="images/asg06.png">
