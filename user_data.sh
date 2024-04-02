@@ -3,7 +3,7 @@
 yum update -y
 
 # INSTALANDO E CONFIGURANDO PARA QUE O DOCKER SEJA INICIADO JUNTO AO SISTEMA
-yum install docker -y
+yum install docker libxcrypt-compat -y
 systemctl start docker.service
 systemctl enable docker.service
 
