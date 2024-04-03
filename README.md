@@ -133,7 +133,7 @@ Após isso, defini as seguintes configurações:
 + Health Check: Mantive a configuração padrão na porta 80.
 
 <img src="images/clb01.png"> <img src="images/clb02.png">
-<img src="images/clb03.png"> <img src="images/clb04.png"> 
+<img src="images/clb-last.png">
 
 ### 7 - Criando o EndPoint 
 Um endpoint é necessário para termos conexão com as nossas instâncias, dado o fato de que elas não tem um IP público.
