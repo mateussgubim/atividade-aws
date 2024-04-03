@@ -172,3 +172,4 @@ Para a criação do Auto Scaling, utilizei as seguintes configurações:
 
 ## Wordpress Working
 <img src="images/wp-working.png">
+<img src="images/wp-working02.png">
