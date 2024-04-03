@@ -60,17 +60,17 @@ Criando as regras para os SGs. Basta navegar para EC2 e selecionar `Security Gro
 |Type |Protocol |Port Range|Source    |
 |-----|---------|----------|----------|
 |HTTP |TCP      |80        |SG-LB     |
-|SSH  |TCP      |22        |0.0.0.0/0 |
+|SSH  |TCP      |22        |SG-LB     |
 
 #### SG-EFS
 |Type |Protocol |Port Range|Source    |
 |-----|---------|----------|----------|
-|NFS  |TCP      |2049      |0.0.0.0/0 |
+|NFS  |TCP      |2049      |SG-EC2    |
 
 #### SG-RDS
 |Type          |Protocol |Port Range|Source    |
 |--------------|---------|----------|----------|
-|MYSQL/Aurora  |TCP      |3306      |0.0.0.0/0 |
+|MYSQL/Aurora  |TCP      |3306      |SG-EC2    |
 
 ### 3 - Criação do EFS
 Utilizei o EFS para compartilhar diretórios do container do Wordpress.
