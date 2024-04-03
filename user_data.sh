@@ -18,13 +18,18 @@ systemctl enable nfs-utils.service
 mkdir -p /efs
 
 # MONTANDO AUTOMATICAMENTE O EFS
-echo "fs-05aa9716a33be6d92.efs.us-east-1.amazonaws.com:/ /efs nfs defaults 0 0" >> /etc/fstab
+echo "fs-057fe62fef337ad15.efs.us-east-1.amazonaws.com:/ /efs nfs defaults 0 0" >> /etc/fstab
 mount -a
 
 # CRIANDO O DIRETORIO DO WP
 mkdir -p /efs/wordpress
 
+# DANDO PERMISSAO AO DEFAULT USER
+sudo usermod -aG docker ec2-user
+sudo chmod 666 /var/run/docker.sock
+
 # CONFIG O DOCKER-COMPOSE
+cat <<EOL > /efs/docker-compose.yml
 version: "3.8"
 services:
   wordpress:
@@ -35,9 +40,10 @@ services:
       - 80:80
     restart: always
     environment:
-      WORDPRESS_DB_HOST: # [RDS ENDPOINT]
-      WORDPRESS_DB_USER: # [RDS USER]
-      WORDPRESS_DB_PASSWORD: # [USER PASSWORD]
-      WORDPRESS_DB_NAME: # [RDS INITIAL NAME]
+      WORDPRESS_DB_HOST: wordpress.c3aa04ioyfq6.us-east-1.rds.amazonaws.com
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+EOL
 
 docker-compose -f /efs/docker-compose.yml up -d
