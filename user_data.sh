@@ -25,6 +25,7 @@ mount -a
 mkdir -p /efs/wordpress
 
 # CONFIG O DOCKER-COMPOSE
+version: "3.8"
 services:
   wordpress:
     image: wordpress:latest
